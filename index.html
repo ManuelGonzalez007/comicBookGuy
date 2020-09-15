@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Comic book guy</title>
+    </head>
+
+    <body>
+
+    	<style>
+
+    		body {
+                text-align: center;
+                background-color: yellow;
+                color: black;
+                font-size: 20px;
+            }
+            
+            img:hover {
+            	cursor: pointer;
+            }
+		
+		</style>
+
+    	<h1>
+            <strong>
+               Tocá al sujeto de las historietas cómicas
+            </strong>
+        </h1>
+
+        <img id = "comicBookGuy" onclick="makeItBigger()" src="image.png" style = "width: 100px" alt="Image of Comic book guy">
+
+        <audio id="myAudio">
+        	<source src="audio.mp3" type="audio/mpeg">
+	    </audio>
+
+		
+		<script>
+
+
+			var imageEl = document.getElementById("comicBookGuy");
+
+				//Corresponde a la solucion de reemplazar en lugar de crear.
+				//var audioEl = document.getElementById("myAudio")
+				
+			function makeItBigger() {
+				if(imageEl.style.width < "300px") {
+					imageEl.style.width = (parseFloat(imageEl.style.width) + 0.4) + "px";
+				    window.requestAnimationFrame(makeItBigger);
+				    var audioEl = document.getElementById("myAudio")
+	       			audioEl.play();
+	 			    imageEl.onclick = '';
+	 			} else {
+	 				var image2El = document.createElement("img");
+	       		    image2El.src = "image2.png";
+	       			image2El.style.width = "600px";
+	       			image2El.alt ="Image of explotion";
+	       			document.body.appendChild(image2El);
+	       			imageEl.remove();
+	  				var audioEl = document.createElement("audio");
+					audioEl.src = "audio2.mp3";
+					audioEl.autoplay = "true";
+				    document.body.appendChild(audioEl);
+				    /*Otra manera de que funcione: Reemplazar el contenido de los elementos en lugar de crear nuevos.
+					imageEl.src="image2.png";
+					imageEl.style.width = "600px";
+	       		    imageEl.alt ="Image of explotion";
+	       		    audioEl.src = "audio2.mp3";
+	       		    audioEl.autoplay = "true";
+	       		    */
+	       		}
+	       	}
+
+		</script>
+
+    </body>
+
+</html>
+
+
+        
